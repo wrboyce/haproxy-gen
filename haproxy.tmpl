@@ -23,7 +23,7 @@ frontend http-80
 	monitor-uri /ping
 {{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
 	acl host_{{$host}} hdr_sub(host) -i {{$host}}
-	use backend backend_{{$host}} if host_{{$host}}
+	use_backend backend_{{$host}} if host_{{$host}}
 {{ end }}
 
 {{ range $host, $containers := groupByMulti $ "Env.VIRTUAL_HOST" "," }}
