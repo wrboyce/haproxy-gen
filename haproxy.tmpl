@@ -3,7 +3,7 @@
 global
 	master-worker
 	maxconn {{$maxconn}}
-	log /dev/log local0
+	log stdout format raw local0 debug
 	stats socket /var/run/haproxy.sock mode 600 level admin
 
 defaults
